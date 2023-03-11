@@ -10,7 +10,7 @@ export default function LandingPage({ IsAuth }) {
                     overflowX: "hidden",
                 }}>
                     <NavBar IsAuth={IsAuth}/>
-
+                
             </div>
         </>
     )
