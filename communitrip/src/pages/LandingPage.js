@@ -1,3 +1,4 @@
+import Chatbot from "../components/Chatbot";
 import NavBar from "../components/NavBar";
 import homepageLogo from "../components/homepagelogo.PNG"
 import "./style/LandingPage.css"
@@ -15,6 +16,7 @@ export default function LandingPage() {
                 <div className="view">
                     <div className="header-container">
                         <NavBar page={"home"}/>
+                        <Chatbot/>
                     </div>
                 </div>
 

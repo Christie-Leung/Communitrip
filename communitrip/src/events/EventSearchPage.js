@@ -1,11 +1,12 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import "./EventSearchPage.css";
-import { AiOutlineSearch } from "react-icons/ai";
+//import { AiOutlineSearch } from "react-icons/ai";
 import Banner from "../components/Banner";
 import PageBody from "../components/PageBody";
 
 function Search() {
+    /*
     return (
         <div className="home">
             <div className="header">
@@ -19,7 +20,7 @@ function Search() {
         </div>
 
       
-    )
+    )*/
 }
 
 export default Search;

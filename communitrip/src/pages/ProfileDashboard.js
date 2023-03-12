@@ -92,7 +92,7 @@ export default function ProfileDashboard() {
     }
 
     const [url, setUrl] = useState("");
-    
+
     const uploadImage = () => {
         console.log(file);
 
@@ -119,7 +119,6 @@ export default function ProfileDashboard() {
                     localStorage.setItem("userUID", userUID)
                 }
             });
-            localStorage.setItem("userUID", "F0pwiR6bAXRNFqHqRyXMQSROuyj1")
 
             const q = query(usersCollectionRef, where("id", "==", localStorage.getItem("userUID")));
             const doc_refs = await getDocs(q);
