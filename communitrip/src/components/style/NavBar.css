@@ -1,0 +1,39 @@
+.navbar-button-container {
+    position: relative;
+    display: flex;
+    width: 95%;
+    align-items: end;
+    justify-content: end;
+    margin-right: min(1vw, 1.5vh);
+}
+
+.navbar-button-text-enabled {
+    font-style: normal;
+    font-weight: 600;
+    font-size: min(2.5vw, 3.2vh);
+    line-height: 26px;
+
+    align-items: start;
+    justify-content: start;
+
+    margin-left: 2.5vw;
+
+
+    color: #000000;
+}
+
+.navbar-button-text-disabled {
+    font-style: normal;
+    font-weight: 300;
+    font-size: min(2.5vw, 3.2vh);
+    line-height: 26px;
+
+    margin-left: 2.5vw;
+
+    color: #000000;
+}
+
+.navbar-button-text-disabled:hover {
+    color: #ee0000;
+    cursor: pointer;
+}
