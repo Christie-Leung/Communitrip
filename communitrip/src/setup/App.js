@@ -12,7 +12,6 @@ import EventDisplayPage from '../events/EventDisplayPage';
 import EventAddPage from '../events/EventAddPage';
 import ProfileDashboard from '../pages/ProfileDashboard';
 import ResetPassword from '../pages/ResetPassword';
->>>>>>> d1c0c0ce5dc2507ada38ff41511b6ddfe30da47f
 
 function App() {
 
