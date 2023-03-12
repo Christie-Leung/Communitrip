@@ -1,3 +1,4 @@
+import Chatbot from "../components/Chatbot";
 import NavBar from "../components/NavBar";
 
 export default function LandingPage() {
@@ -12,6 +13,7 @@ export default function LandingPage() {
                 <div className="view">
                     <div className="header-container">
                         <NavBar page={"home"}/>
+                        <Chatbot/>
                     </div>
                 </div>
             </div>
