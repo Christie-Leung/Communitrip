@@ -163,6 +163,10 @@
     font-weight: normal;
 }
 
+.login-checkbox-container button {
+    margin-left: auto;
+}
+
 .login-checkbox-container a {
     margin-left: auto;
 }

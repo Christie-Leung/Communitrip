@@ -2,10 +2,10 @@ import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import { db } from "../setup/Firebase-config";
+import { db, storage } from "../setup/Firebase-config";
 import "./style/SignUpPage.css"
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { uuidv4 } from "@firebase/util";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 
 export default function SignUpPage({ IsAuth, setIsAuth }) {
@@ -72,8 +72,27 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
         }
     };
 
+    const [progress, setProgress] = useState("");
+    const [url, setUrl] = useState("");
+
+    const uploadImage = () => {
+        console.log(file);
+
+        const storage = getStorage();
+
+        const storageRef = ref(storage, `/profilePictures/${file.name}`);
+
+        uploadBytes(storageRef, file).then((snapshot) => {
+            console.log('uploaded file')
+        }, (err) => {
+            setError(err);
+        }, async() => {
+            const url = await storageRef.getDownloadURL();
+            setUrl(url);
+        })
+    }
+
     const userCollectionRef = collection(db, "Users");
-    const uuid = uuidv4();
 
     const createUser = async (uid) => {
         await addDoc(userCollectionRef,
@@ -88,9 +107,10 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
                 interests: interests,
                 status: status,
                 events: [],
-                profilePicture: file
+                profilePicture: url
             }
         )
+        localStorage.setItem("userUID", uid);
     }
 
     const handleInputChange = () => {
@@ -102,6 +122,7 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
     const handlePasswordCheck = (event) => {
         const validPassword = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(event.target.value)
         setIsValid(validPassword);
+        setError("")
         if (!validPassword) {
             setError("Please ensure your password is 8 characters long and includes atleast one uppercase letter, one number, and a special character. ")
         }
@@ -115,6 +136,9 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
                 //Signed in
                 const user = userCredentials.user;
                 setUserUID(user.uid);
+                if (file) {
+                    uploadImage();
+                }
                 createUser(user.uid);
                 localStorage.setItem("isAuth", true);
                 setIsAuth(true);
@@ -142,6 +166,7 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
                             <img src={image} className="profile-picture-container" alt=""/>
                             <div className="profile-status-container">
                                 <input className="profile-upload-picture" type="file" onChange={handleFileInputChange}/>
+                                
                             </div>
                             { error ?
                                     <>
@@ -155,7 +180,6 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
                                         setStatus(event.target.value);
                                     }}></input>
                             </div>
-                            
                         </div>
                         <div className="create-profile-right-container">
                         
