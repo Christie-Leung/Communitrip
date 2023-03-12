@@ -24,13 +24,15 @@ export default function NavBar({ page }){
             <Link to={"/trips"}>
                 <button className={page === "trips" ? "navbar-button-text-enabled" : "navbar-button-text-disabled"}>Trips</button>
             </Link>
-            <Link to={"/profile"}>
-                <button className={page === "profile" ? "navbar-button-text-enabled" : "navbar-button-text-disabled"}>Profile</button>
-            </Link>
             { !IsAuth ? 
+            <>
+                <Link to={"/profile"}>
+                    <button className={page === "profile" ? "navbar-button-text-enabled" : "navbar-button-text-disabled"}>Profile</button>
+                </Link>
                 <Link to={"/"}>
                     <button className={"navbar-button-text-disabled"} onClick={signUserOut}>Sign Out</button>
                 </Link> 
+            </>
             :
                 <Link to={"/login"}>
                     <button className={page === "login" ? "navbar-button-text-enabled" : "navbar-button-text-disabled"}>Log In</button>
