@@ -8,10 +8,9 @@
 }
 
 .navbar-button-text-enabled {
-    font-family: "RedHatMono-SemiBold";
     font-style: normal;
     font-weight: 600;
-    font-size: min(1.7vw, 2.5vh);
+    font-size: min(2.5vw, 3.2vh);
     line-height: 26px;
 
     align-items: start;
@@ -24,7 +23,6 @@
 }
 
 .navbar-button-text-disabled {
-    font-family: "RedHatMono-Light";
     font-style: normal;
     font-weight: 300;
     font-size: min(2.5vw, 3.2vh);
@@ -36,6 +34,6 @@
 }
 
 .navbar-button-text-disabled:hover {
-    font-family: "RedHatMono-Regular";
-    color: #ee0000
+    color: #ee0000;
+    cursor: pointer;
 }

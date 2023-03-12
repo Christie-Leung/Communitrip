@@ -4,28 +4,17 @@ import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "../setup/Firebase-config";
 import NavBar from "../components/NavBar";
 
-export default function LogInPage({ IsAuth, setIsAuth }) {
+export default function LogInPage() {
 
 
     let navigate = useNavigate();
-    console.log(IsAuth);
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             localStorage.setItem("isAuth", true);
-            setIsAuth(true);
             
             navigate("/");
         })
-    }
-
-    const signUserOut = () => {
-        signOut(auth).then(() => {
-            localStorage.clear();
-            setIsAuth(false);
-            navigate("/");
-        })
-        
     }
 
     return (
@@ -37,7 +26,7 @@ export default function LogInPage({ IsAuth, setIsAuth }) {
             }}>
                 <div className="view">
                     <div className="header-container">
-                        <NavBar page={"login"} IsAuth={IsAuth}/>
+                        <NavBar page={"login"}/>
                     </div>
                     <div class="users-login-container">
                         <form class="users-login-form">

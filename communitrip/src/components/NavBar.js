@@ -1,7 +1,19 @@
 import "./style/NavBar.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../setup/Firebase-config";
 
-export default function NavBar({ page, IsAuth }){
+export default function NavBar({ page }){
+
+    let navigate = useNavigate();
+    let IsAuth = localStorage.getItem("isAuth");
+
+    const signUserOut = () => {
+        signOut(auth).then(() => {
+            localStorage.setItem("isAuth", false);
+            navigate("/");
+        })
+    }
 
     return (
         <>
@@ -15,19 +27,14 @@ export default function NavBar({ page, IsAuth }){
             <Link to={"/profile"}>
                 <button className={page === "profile" ? "navbar-button-text-enabled" : "navbar-button-text-disabled"}>Profile</button>
             </Link>
-            { IsAuth ? 
+            { !IsAuth ? 
                 <Link to={"/"}>
-                    <button className={"navbar-button-text-disabled"}>Sign Out</button>
-                </Link> :
-                <>
-                    <Link to={"/login"}>
-                        <button className={"navbar-button-text-disabled"}>Log In</button>
-                    </Link>
-                    <Link to={"/signup"}>
-                        <button 
-                        className={"navbar-button-text-disabled"}>Create Account</button>
-                    </Link>
-                </>
+                    <button className={"navbar-button-text-disabled"} onClick={signUserOut}>Sign Out</button>
+                </Link> 
+            :
+                <Link to={"/login"}>
+                    <button className={page === "login" ? "navbar-button-text-enabled" : "navbar-button-text-disabled"}>Log In</button>
+                </Link>
             }
         </div>
         </>

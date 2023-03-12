@@ -1,6 +1,6 @@
 import NavBar from "../components/NavBar";
 
-export default function LandingPage({ IsAuth }) {
+export default function LandingPage() {
 
     return (
         <>
@@ -9,8 +9,11 @@ export default function LandingPage({ IsAuth }) {
                     overflowY: "scroll",
                     overflowX: "hidden",
                 }}>
-                    <NavBar IsAuth={IsAuth}/>
-                
+                <div className="view">
+                    <div className="header-container">
+                        <NavBar page={"home"}/>
+                    </div>
+                </div>
             </div>
         </>
     )

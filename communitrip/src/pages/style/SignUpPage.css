@@ -110,7 +110,6 @@
 }
 
 .profile-sign-up-button {
-    margin-top: 4vh;
 	padding: 15px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -124,6 +123,30 @@
     font-weight: bold;
     padding-top: 12px;
     position: relative;
+}
+
+.profile-sign-up-button:disabled {
+    opacity: 0.3;
+}
+
+.profile-sign-up-button:hover {
+    -moz-box-shadow: 0 0 4px #999;
+	-webkit-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+    cursor: pointer
+}
+
+.profile-sign-up-button:disabled:hover::after {
+    content: "Please fill in required fields";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 300;
 }
 
 .profile-upload-picture {
