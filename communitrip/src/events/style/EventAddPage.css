@@ -67,7 +67,7 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
-    align-items: start;
+    align-items: flex-start;
     margin-top: 2vh;
     margin-bottom: 2vh;
     position: static

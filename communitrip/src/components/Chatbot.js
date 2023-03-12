@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 import './style/chatbot.css'
 //import {examples} from './func.js'
 import axios from 'axios';
-import { async } from "@firebase/util";
 
 
 
@@ -22,9 +21,6 @@ export default function Chatbot() {
   const [isButtonVisible, setIsButtonVisible] = useState(true);
   const chatEndRef = useRef(null);
   const def = "Sorry, could you please elaborate more? Feel free provide more specific keywords(e.g. Event ID...)";
-  
-   
-  
 
 
  const cities = ['Paris', 'Tokyo', 'Vancouver'];
@@ -221,7 +217,7 @@ const generateNextStep = async (label) =>{
   }
 
 
-const startQuery =()=> {
+const startQuery = ()=> {
   setIsButtonVisible(false);
   //setChatBotInput(start);
   setMessages([...messages, startMessage]);
@@ -237,34 +233,31 @@ const startQuery =()=> {
       useEffect(() => {
         chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
       }, [messages]);
-    
+
+      
       return (
-        <div className="chat-container">
+        <>
+          { isButtonVisible ?
+
+            <div className="chat-closed-container"> 
+              <button className="chat-image-container" 
+              src={require("./chatbotIcon.jpeg")} onClick={handleButtonClick}/>
+            </div>
+          :  
           <div className="chat-box-header">
-        <h3>Ask us question!</h3>
-        <p><i className="fa fa-times"></i></p></div>
-          <div className="chat-history">
-          {messages.map((message, index) => (
-          <Message key={index} message={message} />
-        ))}
-            <div ref={chatEndRef} />
+            <div className="chat-input-container"> 
+              <input
+                type="text"
+                className="cohere-chat-input-text"
+                value={userInput}
+                onChange={(event) => 
+                  setUserInput(event.target.value)
+                }
+                placeholder="Type your message here"/><button className="cohere-chat-button"onClick={handleButtonClick}>Send</button>
+            </div> 
           </div>
-          <div>
-          {isButtonVisible && (
-        <button className="cohere-chat-button" onClick={startQuery}>Start chatting with our bot! </button>
-      )} </div>
-          {!isButtonVisible && 
-          <div className="chat-input-container"> 
-             <input
-              type="text"
-              className="cohere-chat-input-text"
-              value={userInput}
-              onChange={(event) => 
-                setUserInput(event.target.value)
-              }
-              placeholder="Type your message here"/> <button className="cohere-chat-button"onClick={handleButtonClick}>Send</button>
-          </div> }
-        </div>
+            }
+        </>
       );
 }
 

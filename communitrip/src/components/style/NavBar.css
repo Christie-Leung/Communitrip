@@ -13,8 +13,8 @@
     font-size: min(2.5vw, 3.2vh);
     line-height: 26px;
 
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
 
     margin-left: 2.5vw;
 
@@ -34,6 +34,6 @@
 }
 
 .navbar-button-text-disabled:hover {
-    color: #ee0000;
+    color: #462FA7;
     cursor: pointer;
 }

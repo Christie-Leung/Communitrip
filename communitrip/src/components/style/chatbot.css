@@ -2,12 +2,46 @@
   position: fixed;
   bottom: 10px;
   right: 10px;
+  left: auto;
+  top: auto;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 300px;
-  height: 400px;
+  border-radius: 10px;
+  width: min(40vw, 40vh);
+  height: min(38vw, 38vh);
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.chat-closed-container {
+  position: fixed;
+  bottom: min(5vw, 5vh);
+  right: min(8vw, 8vh);
+  border-radius: 1000px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  top: auto;
+  left: auto;
+}
+
+.chat-image-container {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: min(12vw, 12vh);
+  height: min(12vw, 12vh);
+  border-radius: 1000px;
+  position: relative;
+  background-image: url("../chatbotIcon.jpeg")
+}
+
+.chat-image-container:hover {
+  -moz-box-shadow: 0 0 4px #5b5b5b;
+	-webkit-box-shadow: 0 0 4px #5b5b5b;
+	box-shadow: 0 0 4px #5b5b5b;
+  cursor: pointer;
 }
 
 
@@ -25,28 +59,60 @@
 .chat-input-container {
   display: flex;
   padding: 10px;
+  position: relative;
+  width: 100%;
 }
 
 .cohere-chat-input-text {
-  flex: 1;
   border-radius: 5px;
-  padding: 5px;
   font-size: 16px;
-  margin-right: 10px;
+  padding: 2%;
 }
 
-.cohere-chat-button {
-  border: none;
+.chat-box-header {
+  align-items: flex-start;
+  width: 100%;
+  padding: 3%;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  left: auto;
+  top: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: min-content;
+  height: min-content;
+  background-color: #e0e0e06b;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
+.chat-submit-button {
+  border: none;
+  background-color: #462FA7; 
   color: #fff;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 2%;
+  margin-left: 1vw;
+  width: 10%;
   font-size: 16px;
-  cursor: pointer;
+}
+ 
+.cohere-chat-button {
+  border: none;
+  background-color: #462FA7; 
+  color: #fff;
+  border-radius: 5px;
+  padding: 2%;
+  margin-left: 1vw;
+  width: 95%;
+  font-size: 16px;
 }
 
 .cohere-chat-button:hover {
-  background-color: #555;
+  font-size: 17.5px;
+  cursor: pointer;
 }
 
 .message {
@@ -80,8 +146,8 @@
 }
 
 .bot p {
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: #bbbbbb9b;
+  color: #222;
   border-radius: 16px;
   padding: 8px;
   margin: 0;

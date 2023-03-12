@@ -13,13 +13,21 @@ import { getStorage } from "firebase/storage"
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDPQY613cEbDrxYXBINUw_uqhXqeG3uEKo",
-  authDomain: "communi-trip.firebaseapp.com",
-  projectId: "communi-trip",
-  storageBucket: "communi-trip.appspot.com",
-  messagingSenderId: "113717098727",
-  appId: "1:113717098727:web:13fb7a92351474cf970a42"
+
+  apiKey: "AIzaSyCIEWO-jKWHvRyJW_o7aRm2f8CA6CFIA0w",
+
+  authDomain: "communitripp.firebaseapp.com",
+
+  projectId: "communitripp",
+
+  storageBucket: "communitripp.appspot.com",
+
+  messagingSenderId: "903999228807",
+
+  appId: "1:903999228807:web:db03441e2482d0e49a2122"
+
 };
+
 
 // Initialize Firebase
 
