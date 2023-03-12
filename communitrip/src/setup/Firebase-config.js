@@ -32,3 +32,5 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 export const db = getFirestore(app);
 export const storage = getStorage(app);
+
+export const API_KEY = "sk-OfPb7bfyZvnIiwicm7ycT3BlbkFJGSLdXsFy1O5DGqu2b5hPsk-OfPb7bfyZvnIiwicm7ycT3BlbkFJGSLdXsFy1O5DGqu2b5hP"

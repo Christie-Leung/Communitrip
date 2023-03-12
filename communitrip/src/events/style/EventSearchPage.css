@@ -1,0 +1,31 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search_bar{
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 10px;
+    height: auto;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+    margin-left: min(5vw, 5vh)
+}
+
+.search_bar > input {
+    border: none;
+    width: min(40vw, 40vh);
+}
+
+.search-bar-input:focus {
+    border: none;
+    outline: none
+}
+
+#event-search-page {
+    display: flex;
+    justify-content: center;
+}

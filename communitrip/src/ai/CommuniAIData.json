@@ -1,0 +1,114 @@
+{
+    "prompts": [{
+        "prompt": "I always wanted to go to Vancouver to mostly eat all the good food there. I was thinking of planning a 4 day trip there with 3 of my friends. Since we don't have a large budget, we were worried that this trip would cost too much. What should we do?", 
+        "completion": "Vancouver is awesome! Such great weather with the mountains and sea at sight, there is no better choice! If you're worried about budgets, I definitely got your back! How does the following 4-day travel plan sound with a budget of $50 per person a day on meals:
+        
+        Day 1:
+
+    Hotel: Check-in at the Cambie Hostel Gastown, located in the historic Gastown district. Prices start at $27 per night.
+    Breakfast: Head to Cafe Medina for their famous Belgian waffles with toppings. Prices start at $4.50.
+    Activity: Take a walk around the beautiful Stanley Park and enjoy the views of the city and the water. It's free!
+    Lunch: Visit Japadog for some fusion hot dogs with Japanese toppings. Prices start at $6.
+    Activity: Visit the famous Granville Island Public Market and explore the different food vendors. It's free!
+    Dinner: Have some delicious sushi at Sushi Itoga. Prices start at $10.
+
+Day 2:
+
+    Breakfast: Head to Jam Cafe for their mouth-watering pancakes with different toppings. Prices start at $12.
+    Activity: Visit the Capilano Suspension Bridge Park and enjoy the treetop adventure walk. Prices start at $54.
+    Lunch: Visit the famous Vij's for some delicious Indian food. Prices start at $10.
+    Activity: Visit the Vancouver Art Gallery and enjoy some great art. Prices start at $24.
+    Dinner: Visit La Taqueria for some authentic Mexican tacos. Prices start at $2.50 per taco.
+
+Day 3:
+
+    Breakfast: Head to Yolks for some delicious breakfast sandwiches. Prices start at $9.
+    Activity: Visit the Museum of Anthropology at the University of British Columbia and explore the different exhibits. Prices start at $18.
+    Lunch: Visit Mom's Grilled Cheese Truck for some classic grilled cheese sandwiches. Prices start at $6.
+    Activity: Explore the different shops and food vendors in the historic Chinatown district. It's free!
+    Dinner: Have some amazing Ramen at Ramen Butcher. Prices start at $12.
+
+Day 4:
+
+    Breakfast: Head to Purebread for some freshly baked pastries and bread. Prices start at $3.50.
+    Activity: Take a ferry to Granville Island and explore the different shops and food vendors. Prices start at $4.25 per person.
+    Lunch: Visit Tacofino for some delicious fish tacos. Prices start at $5.
+    Activity: Visit the Vancouver Aquarium and enjoy the different marine animals. Prices start at $39.
+    Dinner: Have some amazing pizza at Pizzeria Farina. Prices start at $14.
+
+Total estimated cost per person for food and activities for 4 days: $360
+Hotel cost per person for 4 nights: $108
+Total cost per person for 4 days: $468
+
+Booking links:
+
+    Cambie Hostel Gastown: https://www.hostels.com/hostels/vancouver/cambie-hostel-gastown/44535
+    Cafe Medina: https://www.medinacafe.com/
+    Japadog: https://www.japadog.com/
+    Granville Island Public Market: https://granvilleisland.com/public-market
+    Sushi Itoga: https://www.sushiitoga.com/
+    Jam Cafe: https://jamcafes.com/
+    Capilano Suspension Bridge Park: https://www.capbridge.com/
+    Vij's: https://www.vijsrestaurant.ca/
+    Vancouver Art Gallery: https://www.vanartgallery.bc.ca/
+    La Taqueria: https://www.lataqueria.com/
+    Yolks: https://www.yolks.ca/
+    Purebread: https://www.purebread.ca/
+    Tacofino: https://www.tacofino.com/
+    Vancouver Aquarium: https://www.vanaqua.org/
+    Pizzeria Farina: https://www.pizzeriafarina.com/"
+    },
+    {
+        "prompt": "I just wanna go buy some groceries for cheap. Living in vancouver doesn't make it easy since the cost of living is so high here. I would get a costco card but I live alone and can't even finish all the food.", 
+        "completion": "That's an excellent idea for reducing food waste and lowering your cost. Here are some ways that I came up with for planning a trip to your local Costco store with an ideal of 4 people for the trip. 
+        
+        Some great options for bulk buying at Costco Vancouver include:
+
+        Rice
+        Pasta
+        Canned goods (e.g. beans, tomatoes, soup)
+        Frozen fruits and vegetables
+        Meat and poultry (if one or more of the 4 people has a deep freezer to store excess)
+        Nuts and seeds
+        Snacks (e.g. trail mix, chips, crackers)
+        Cleaning supplies (e.g. laundry detergent, dish soap, paper towels)
+        Personal care items (e.g. shampoo, toothpaste, razors)
+    
+        Arrange for transportation to and from Costco Vancouver. Depending on the location of the 4 people, they may choose to carpool or use public transportation.
+    
+        Once at Costco Vancouver, start by browsing the aisles for the items on the shopping list. Take note of the unit price and compare it to regular grocery stores to ensure that buying in bulk is actually cheaper.
+    
+        When purchasing items, split them evenly between the 4 people. For example, if buying a 10 kg bag of rice, each person would get 2.5 kg. This ensures that each person benefits from the savings of bulk buying.
+    
+        Consider purchasing a Costco membership if the 4 people plan on doing bulk buying on a regular basis. This can help them save money in the long run.
+    
+        After finishing shopping, head back home and split the purchased items among the 4 people. It may be helpful to use resealable bags or containers to divide the items.
+    
+    By following these steps, the 4 people can save money on groceries while still having a variety of options to choose from. Happy shopping!"
+    },
+    {
+        "prompt": "<prompt text>", 
+        "completion": "<ideal generated text>"
+    },
+    {
+        "prompt": "<prompt text>", 
+        "completion": "<ideal generated text>"
+    },
+    {
+        "prompt": "<prompt text>", 
+        "completion": "<ideal generated text>"
+    },
+    {
+        "prompt": "<prompt text>", 
+        "completion": "<ideal generated text>"
+    },
+    {
+        "prompt": "<prompt text>", 
+        "completion": "<ideal generated text>"
+    },
+    {
+        "prompt": "<prompt text>", 
+        "completion": "<ideal generated text>"
+    }
+]
+}

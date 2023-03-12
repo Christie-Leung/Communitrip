@@ -2,12 +2,37 @@ import React from "react";
 import Banner from "./Banner";
 import Card from "./Card";
 import "./style/PageBody.css";
+import { collection, getDocs } from "@firebase/firestore";
+import { db } from "../setup/Firebase-config";
+import { useEffect, useState } from "react";
 
 function PageBody() {
+
+    const [eventList, setEventList] = useState([]);
+    const eventsCollectionRef = collection(db, "Events")
+
+    const getEvents = async () => {
+        const data = await getDocs(eventsCollectionRef);
+        setEventList(data.docs.map((doc) => ({ ...doc.data(), docID: doc.id })));
+        
+    };
+
+    getEvents();
+
     return (
         <div className="body">
             <Banner/>
             <div className="cards">
+                { eventList.map((event) => {
+                    return (
+                        <Card
+                            eventID={event.id}
+                            src={event.image ? event.image : ""}
+                            title={event.title}
+                            description={event.description}
+                        />
+                    )
+                })}
                 <Card
                     src="https://www.chrisistace.com/wp-content/uploads/2019/07/Pogo-Mountain_Hike-Vancouver-Island_Chris-Istace_feature-image.jpg"
                     title="Pogo Mountain Hike"

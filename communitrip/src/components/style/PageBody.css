@@ -2,4 +2,13 @@
     display: flex;
     padding: 10px;
     justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 3;
+}
+
+.city-image-containers {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
 }

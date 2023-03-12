@@ -6,7 +6,7 @@ import './style/EventDisplayPage.css'
 import FAQ from "./FAQ";
 import ParticipantContainer from "../components/ParticipantsContainer"
 
-export default function EventDisplayPage({ eventID, IsAuth }) {
+export default function EventDisplayPage({ eventID }) {
 
     const [faqs, setFaqs] = useState([
         {
@@ -51,7 +51,7 @@ export default function EventDisplayPage({ eventID, IsAuth }) {
             }}>
               <div className="view">
                 <div className="header-container">
-                        <NavBar page={"signup"} IsAuth={IsAuth}/>
+                        <NavBar page={"signup"}/>
                 </div>
 
                 <div className="event_title">
@@ -88,8 +88,7 @@ export default function EventDisplayPage({ eventID, IsAuth }) {
                     <FAQ faq={faq} index={index} key={index} toggleFAQ={toggleFAQ} />
                     ))}
                 </div>
-              // Event join button
-              // Event profile
+                <EventDisplayPage buttonText="Join Event"/>
               </div>
             </div>
         </>

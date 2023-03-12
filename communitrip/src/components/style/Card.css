@@ -1,7 +1,7 @@
 .card{
     margin: 20px;
     height: 500px;
-    width: 500px;
+    width: min(40vw, 50vh);
     border: 0px solid black;
     border-radius: 10px;
     overflow: hidden;
@@ -15,16 +15,18 @@
 }
 
 .trim{
-    max-height: 250px;
-    max-width: 300px;
     overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: min(25vw, 35vh);
 }
 
 .trim > img{
     object-fit: fill;
-    min-width: 300px;
-    min-height: 250px;
+    height: min(25vw, 35vh);
     width: 100%;
+    background-color: #808080;
 }
 
 .card_info{
@@ -45,4 +47,8 @@
     font-weight: 300;
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+a {
+    color: #000;
 }

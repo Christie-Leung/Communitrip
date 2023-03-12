@@ -13,6 +13,7 @@ import { v4 as uuid } from 'uuid';
 
 import "./style/EventDisplayPage.css";
 import { uuidv4 } from "@firebase/util";
+import ChatBoxView from "../components/ChatBoxView";
 
 export default function EventAddPage({ IsAuth, setIsAuth }) {
 
@@ -91,11 +92,11 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
 
                 <div className="view">
                     <div className="header-container">
-                        <NavBar page={"signup"} IsAuth={IsAuth}/>
+                        <NavBar page={"event"}/>
                     </div>
 
                     <div className="event_title">
-                        <h1> Add Your Event </h1>
+                        <h1>Add Your Event</h1>
                     </div> 
 
                     <div className="create-event-full-container">
@@ -173,21 +174,29 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
                             </div>
                         </div>
                     </div>
-                    <div className="calendar-view-container">
-                        <div className='react-calendar'>
-                        <text className='calendar-header'>React Calendar</text>
-                        <div className='calendar-container'>
-                            <Calendar onChange={setDate2} value={date2} />
+                    <div style={{ marginTop: "2vh", display: "flex" }}>
+                        <div className="bottom-left-container">
+                            <div className="calendar-view-container">
+                                <div className='react-calendar'>
+                                    <text className='calendar-header'>React Calendar</text>
+                                    <div className='calendar-container'>
+                                        <Calendar onChange={setDate2} value={date2} />
+                                    </div>
+                                    <p className='text-center'>
+                                        <span className='bold'>Selected Date:</span>{' '}
+                                        {date2.toDateString()}
+                                    </p>
+                                </div>
                             </div>
-                            <p className='text-center'>
-                                <span className='bold'>Selected Date:</span>{' '}
-                                {date2.toDateString()}
-                            </p>
+                        </div>
+                        <div className="bottom-right-container">
+                            <ChatBoxView hideSideBar={true} 
+                            containerStyle={{ height: "42vw", marginTop: "min(3vw, 3vh)" }} 
+                            leftContainerStyle={{ width: "100%", backgroundColor: "#2b2b2b"}}/>
                         </div>
                     </div>
-                </div>
-            </div>
-        
+                    </div>
+                </div>                        
         </>
     )
 }

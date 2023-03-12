@@ -1,0 +1,33 @@
+.add-event-button-container {
+    position: fixed;
+    bottom: min(5vw, 5vh);
+    right: min(8vw, 8vh);
+    width: min(20vw, 19vh);
+    height: 5.5vh;
+    top: auto;
+    left: auto;
+}
+
+.add-event-button-container:hover {
+    bottom: min(5vw, 5vh);
+    right: min(16.5vw, 7.5vh);
+    width: min(21vw, 19.5vh);
+    height: 6vh;
+    top: auto;
+    left: auto;
+}
+
+.add-event-button {
+    background-color: rgb(107, 19, 166);
+    color: #fff;
+    font-weight: 600;
+    font-size: min(2.2vw, 2.2vh);
+    width: 100%;
+    height: 100%;
+    border-radius: 1000px;
+}
+
+.add-event-button:hover {
+    cursor: pointer;
+    font-size: min(2.5vw, 2.5vh);
+}

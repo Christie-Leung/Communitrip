@@ -1,26 +1,36 @@
-import React from "react";
 import NavBar from "../components/NavBar";
-import "./EventSearchPage.css";
-//import { AiOutlineSearch } from "react-icons/ai";
+import "./style/EventSearchPage.css";
+import { AiOutlineSearch } from "react-icons/ai";
 import Banner from "../components/Banner";
 import PageBody from "../components/PageBody";
+import EventActionButton from "../components/EventActionButton";
+
 
 function Search() {
-    /*
-    return (
-        <div className="home">
-            <div className="header">
-                <div className="search_bar">
-                    <input type="text"/>
-                    <AiOutlineSearch/>
-                </div>
-                <NavBar page="home"/>
-            </div>
-            <PageBody/>
-        </div>
 
+    return (
+        <>
+            <div className="window-container" style={{
+                backgroundColor: "white",
+                overflowY: "scroll",
+                overflowX: "hidden",
+            }}>
+                <div className="view">
+                    <div id="event-search-page"className="header-container">
+                        <div className="search_bar">
+                            <input type="text" className="search-bar-input"/>
+                            <AiOutlineSearch/>
+                        </div>
+                        <NavBar page={"trips"}/>
+                    </div>
+                    <PageBody/>
+                    
+                </div>
+                <EventActionButton buttonText="Add Event"/>
+            </div>
+        </>
       
-    )*/
+    )
 }
 
 export default Search;

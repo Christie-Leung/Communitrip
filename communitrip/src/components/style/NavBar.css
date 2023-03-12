@@ -2,8 +2,8 @@
     position: relative;
     display: flex;
     width: 95%;
-    align-items: end;
-    justify-content: end;
+    align-items: flex-end;
+    justify-content: flex-end;
     margin-right: min(1vw, 1.5vh);
 }
 

@@ -1,17 +1,21 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style/Card.css";
 
-function Card({src, title, description}) {
+function Card({eventID, src, title, description}) {
+    
     return (
-        <div className="card">
-            <div className="trim">
-                <img src={src} alt=""/>
+        <Link to={`/event/${eventID}`}>
+            <div className="card">
+                <div className="trim">
+                    <img src={src} alt=""/>
+                </div>
+                <div className="card_info">
+                    <h2>{title}</h2>
+                    <h4>{description}</h4>
+                </div>
             </div>
-            <div className="card_info">
-                <h2>{title}</h2>
-                <h4>{description}</h4>
-            </div>
-        </div>
+        </Link>
     )
 }
 

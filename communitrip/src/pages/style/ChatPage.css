@@ -13,8 +13,8 @@
     width: 65%;
     display: flex;
     flex-direction: column;
-    align-items: end;
-    justify-content: end;
+    align-items: flex-end;
+    justify-content: flex-end;
     background-color: #2b2b2b;
     padding-left: min(2vw, 2vh);
 }
@@ -24,7 +24,7 @@
     height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     margin-bottom: 4vh;
     overflow-y: auto;
     overflow-x: hidden;

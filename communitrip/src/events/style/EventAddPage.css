@@ -1,14 +1,16 @@
 .create-event-full-container {
-    width: 95%;
+    width: 85%;
     height: 100%;
     display: flex;
     position: relative;
+    margin: auto;
     margin-top: 5%;
     justify-content: center;
+    
 }
 
 .create-event-left-container {
-    width: 25%;
+    width: 35%;
     height: 100%;
     flex-direction: column;
     align-items: center;
@@ -234,5 +236,18 @@
     color: white;
    }
 
+.bottom-left-container {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-
+.bottom-right-container {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
