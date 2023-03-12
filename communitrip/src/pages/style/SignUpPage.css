@@ -18,7 +18,7 @@
 }
 
 .profile-picture-container {
-    background-color: gray;
+    background-color: #808080;
     border-radius: 1000px;
     width: min(25vw, 32vh);
     height: min(25vw, 32vh);
