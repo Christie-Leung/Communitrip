@@ -1,28 +1,41 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import {db, storage} from "../setup/Firebase-config";
 import "./style/EventAddPage.css"
 import "./style/Calendar.css"
 import React, {Component} from 'react';
 import Calendar from "react-calendar";
-
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getAuth } from "firebase/auth";
+import { v4 as uuid } from 'uuid';
 
 import "./style/EventDisplayPage.css";
+import { uuidv4 } from "@firebase/util";
 
 export default function EventAddPage({ IsAuth, setIsAuth }) {
 
-    const [eventTitle, setEventTitle] = useState("");
-    const [eventLocation, setLocation] = useState("");
-    const [eventDuration, setDuration] = useState("");
-    const [eventCost, setCost] = useState("");
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [leader, setLeader] = useState("");
+    const [location, setLocation] = useState("");
+    const [numGuest, setNumGuest] = useState("");
+    const [duration, setDuration] = useState("");
+    const [cost, setCost] = useState("");
+
+    const [eventID, setEventID] = useState(null);
 
     const [isValid, setIsValid] = useState(true);
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
     const [image, setImage] = useState(null);
 
-    const [date, setDate] = useState(new Date());
-    const [showTime, setShowTime] = useState(false) 
+    const [date, setDate] = useState("");
+    const [date2, setDate2] = useState(new Date());
+
+
+    let navigate = useNavigate();
 
     const handleFileInputChange = (event) => {
         const file = event.target.files[0];
@@ -40,8 +53,35 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
         }
       };
 
+    const [progress, setProgress] = useState("");
+    const [url, setUrl] = useState("");
+
+    const eventCollectionRef = collection(db, "Events");
+
+    const createEvent = async () => {
+        await addDoc(eventCollectionRef,
+            {
+                id: uuidv4(),
+                title: title,
+                description: description,
+                // leader: leader,
+                numGuest: numGuest,
+                // participants: [],
+                location: location,
+                duration: duration,
+                date: date, 
+                cost: cost
+                // imagePicture: url
+            }).catch((err) => {
+                console.log(err);
+            }).then((doc) => {
+                console.log(doc);
+            })
+
+    }
+
+
     return (
-    
         <>
          <div className="window-container" style={{
                     backgroundColor: "white",
@@ -77,29 +117,59 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
                         <div className="create-event-right-container">
                         
                             <div className="event-input-container">
-                                <input className="event-input" type="text" placeholder="Event Title"></input>
-                                <input className="event-input" type="text" placeholder="Location"></input>
+                                <input className="event-input" type="text" placeholder="Event Title"
+                                 onChange={(event) => {
+                                    setTitle(event.target.value);
+                                 }}
+                                ></input>
+                                <input className="event-input" type="text" placeholder="Location"
+                                onChange={(event) => {
+                                    setLocation(event.target.value);
+                                 }}
+                                 ></input>
                             </div>
 
                             <div className="event-input-container">
-                                <input className="event-input" type="date" placeholder="Date"></input>
-                                <input className="event-input" type="number" placeholder="Duration(Days)"></input>
+                                <input className="event-input" type="date" placeholder="Date"
+                                onChange={(event) => {
+                                    setDate(event.target.value);
+                                 }}
+                                 ></input>
+                                <input className="event-input" type="number" placeholder="Duration(Days)"
+                                onChange={(event) => {
+                                    setDuration(event.target.value);
+                                 }}
+                                 ></input>
                             </div>
 
                             <div className="event-input-container">
-                            <input className="event-input" type="number" placeholder="Number of Guests"></input>
-                            <input className="event-input" type="number" placeholder="Estimated Cost(CAD)"></input>
+                            <input className="event-input" type="number" placeholder="Number of Guests"
+                            onChange={(event) => {
+                                setNumGuest(event.target.value);
+                             }}
+                            ></input>
+                            <input className="event-input" type="number" placeholder="Estimated Cost(CAD)"
+                            onChange={(event) => {
+                                setCost(event.target.value);
+                             }}
+                            ></input>
                             </div>
 
                             <div className="seperator"/>
                             <div className="event-long-input-container">
                                 <label className="event-input-label">Event Description</label>
-                                <textarea className="profile-long-input" placeholder="Tell us about the event you are planning!" style={{ minHeight: "min(10vw, 20vh)" }}/>
+                                <textarea className="profile-long-input" placeholder="Tell us about the event you are planning!" style={{ minHeight: "min(10vw, 20vh)" }}
+                                onChange={(event) => {
+                                    setDescription(event.target.value);
+                                 }}
+                                 />
                             </div>
                             <div style={{ display: "flex", justifyContent: "end"}}>
-                                <Link to={`/event/{id}`}>
-                                    <button type="submit" className="event-add-button">Add Event</button>
-                                </Link>
+                                    <button type="submit" className="event-add-button" 
+                                    onClick={() => {
+                                        console.log(description, numGuest, location, duration, date, cost)
+                                        createEvent() }}
+                                    >Add Event</button>
                             </div>
                         </div>
                     </div>
@@ -107,11 +177,11 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
                         <div className='react-calendar'>
                         <text className='calendar-header'>React Calendar</text>
                         <div className='calendar-container'>
-                            <Calendar onChange={setDate} value={date} />
+                            <Calendar onChange={setDate2} value={date2} />
                             </div>
                             <p className='text-center'>
                                 <span className='bold'>Selected Date:</span>{' '}
-                                {date.toDateString()}
+                                {date2.toDateString()}
                             </p>
                         </div>
                     </div>
