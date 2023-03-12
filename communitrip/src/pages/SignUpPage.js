@@ -129,15 +129,15 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
 
     const handleUserAuth = () => {
         const auth = getAuth();
-        if (file) {
-            uploadImage();
-        }
         if (!error) {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredentials) => {
                 //Signed in
                 const user = userCredentials.user;
                 setUserUID(user.uid);
+                if (file) {
+                    uploadImage();
+                }
                 createUser(user.uid);
                 localStorage.setItem("isAuth", true);
                 setIsAuth(true);
