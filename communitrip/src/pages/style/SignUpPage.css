@@ -1,0 +1,159 @@
+.create-profile-full-container {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    margin-top: 5%;
+    justify-content: center;
+}
+
+.create-profile-left-container {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-picture-container {
+    background-color: gray;
+    border-radius: 1000px;
+    width: min(25vw, 32vh);
+    height: min(25vw, 32vh);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.profile-status-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-status-input {
+    background-color: #fff;
+    margin-top: 3vh;
+    font-size: min(2vw, 2.7vh);
+    border: 2px solid #eee;
+    border-radius: 3px;
+    outline: none;
+    padding: 5%;
+    position: relative;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.create-profile-right-container {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.profile-input-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: start;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    position: static
+    
+}
+.profile-input {
+    outline: none;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+    background: transparent;
+    color: #000;
+    padding: 5px 15px 7px 10px;
+    width: 40%;
+}
+
+.profile-invalid {
+    color: red
+}
+
+.profile-long-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    width: 100%;
+}
+
+.profile-input-label {
+    margin-bottom: 1vh;
+    color: #000;
+    font-size: min(2.5vw, 3vh);
+}
+
+.profile-long-input {
+    color: #000000;
+    background-color: #fbfbfb;
+    font-size: min(1.8vw, 2.2vh);
+    font-weight: 200;
+    border-radius: min(0.5vw, 0.7vh);
+    padding: min(1vw, 1.2vh);
+    width: 100%;
+    box-sizing: border-box
+}
+
+.profile-sign-up-button {
+	padding: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	background-color: #141c2c;
+	border: 2px solid #141c2c;
+    border-radius: 3px;
+    color: #fff;
+    width: min(25vw, 25vh);
+	font-size: min(2.3vw, 2.3vh);
+    height: min(7vw, 7vh);
+    font-weight: bold;
+    padding-top: 12px;
+    position: relative;
+}
+
+.profile-sign-up-button:disabled {
+    opacity: 0.3;
+}
+
+.profile-sign-up-button:hover {
+    -moz-box-shadow: 0 0 4px #999;
+	-webkit-box-shadow: 0 0 4px #999;
+	box-shadow: 0 0 4px #999;
+    cursor: pointer
+}
+
+.profile-sign-up-button:disabled:hover::after {
+    content: "Please fill in required fields";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 300;
+}
+
+.profile-upload-picture {
+    color: #000000;
+    font-size: min(1.7vw, 2.1vh);
+    border-radius: min(0.5vw, 0.7vh);
+    padding: min(0.25vw, 0.5vh);
+    width: 100%;
+    display: inline-block
+}
