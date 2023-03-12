@@ -5,7 +5,7 @@ import * as React from 'react';
 import './style/EventDisplayPage.css'
 import FAQ from "./FAQ";
 
-export default function EventDisplayPage({ IsAuth }) {
+export default function EventDisplayPage({ id, IsAuth }) {
     const [faqs, setFaqs] = useState([
         {
           question: "What is included in the package?",
@@ -47,47 +47,47 @@ export default function EventDisplayPage({ IsAuth }) {
                     overflowY: "scroll",
                     overflowX: "hidden",
             }}>
+              <div className="view">
+                <div className="header-container">
+                        <NavBar page={"signup"} IsAuth={IsAuth}/>
+                </div>
 
-            <div className="header-container">
-                    <NavBar page={"signup"} IsAuth={IsAuth}/>
-            </div>
+                <div className="event_title">
+                    <h1> Explore Cappadocia </h1>
+                </div> 
+                <div className="event-page-subcontainer">
+                  <div className="event-page-left-container">
+                    <div className="event_subtitle">
+                        <h3> Cappadocia Balloon Flights from Discovery Balloons </h3>
+                    </div> 
 
-            <div className="event_title">
-                 <h1> Explore Cappadocia </h1>
-            </div> 
+                    <div className="event_photo">
+                        <img className="event_photo_image" src={cappadocia} alt="Logo"/>
+                    </div>
+                  </div>
+                </div>
+                <div className="event_summary">
+                      <p> - Location: Town center of Goreme, Cappadocia <br></br>
+                          - Date/Duration: April 4th, 2023 for three hours <br></br>
+                          - Estimated Cost: 250 CAD <br></br>
+                          - Leader/Guide: Jackie </p>
+                  </div>
 
-            <div className="event_subtitle">
-                 <h3> Cappadocia Balloon Flights from Discovery Balloons </h3>
-            </div> 
+                <div className="event_description">
+                    <h2>Description</h2>
+                        <p> Take in the beauty of Cappadocia’s landscape with a sunrise balloon flight. Travel comfortably to the launch site in an air-conditioned vehicle as the crew inflate the hot air balloon. As you float higher in a balloon flown by an experienced pilot, admire the volcanic rock formations and fairy chimneys that dot the landscape and the valleys that cut through the scenery.
+                        </p>
+                </div>
 
-            <div className="event_photo">
-                <img src={cappadocia} alt="Logo"/>
-            </div>
-
-            <div className="event_summary">
-                <p> - Location: Town center of Goreme, Cappadocia <br></br>
-                    - Date/Duration: April 4th, 2023 for three hours <br></br>
-                    - Estimated Cost: 250 CAD <br></br>
-                    - Leader/Guide: Jackie </p>
-            </div>
-
-            <div className="event_description">
-                <h2>Description</h2>
-                    <p> Take in the beauty of Cappadocia’s landscape with a sunrise balloon flight. Travel comfortably to the launch site in an air-conditioned vehicle as the crew inflate the hot air balloon. As you float higher in a balloon flown by an experienced pilot, admire the volcanic rock formations and fairy chimneys that dot the landscape and the valleys that cut through the scenery.
-                    </p>
-            </div>
-
-            <div className="faqs">
-                <h2>FAQ</h2>
-                {faqs.map((faq, index) => (
-                <FAQ faq={faq} index={index} key={index} toggleFAQ={toggleFAQ} />
-                ))}
-            </div>
-
-
-            // Event join button
-            // Event profile
-
+                <div className="faqs">
+                    <h2>FAQ</h2>
+                    {faqs.map((faq, index) => (
+                    <FAQ faq={faq} index={index} key={index} toggleFAQ={toggleFAQ} />
+                    ))}
+                </div>
+              // Event join button
+              // Event profile
+              </div>
             </div>
         </>
     );
