@@ -2,15 +2,17 @@ import "./style/NavBar.css"
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../setup/Firebase-config";
+import { useState } from "react";
 
 export default function NavBar({ page }){
 
     let navigate = useNavigate();
-    let IsAuth = localStorage.getItem("isAuth");
+    const [IsAuth, setIsAuth] = useState(localStorage.getItem("isAuth"))
 
     const signUserOut = () => {
         signOut(auth).then(() => {
             localStorage.setItem("isAuth", false);
+            setIsAuth(false);
             navigate("/");
         })
     }
