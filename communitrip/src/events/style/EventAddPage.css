@@ -131,6 +131,11 @@
     position: relative;
 }
 
+.event-add-button:hover {
+    box-shadow: 2px #000;
+    cursor: pointer;
+}
+
 .event-upload-picture {
     color: #000000;
     font-size: min(1.7vw, 2.1vh);

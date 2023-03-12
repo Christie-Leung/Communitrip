@@ -6,13 +6,10 @@ import LandingPage from '../pages/LandingPage';
 import LogInPage from '../pages/LogInPage';
 import SignUpPage from '../pages/SignUpPage';
 import EventRouteManager from '../events/EventRouteManager';
-<<<<<<< HEAD
 import EventDisplayPage from '../events/EventDisplayPage';
 import EventAddPage from '../events/EventAddPage';
-=======
 import ProfileDashboard from '../pages/ProfileDashboard';
 import ResetPassword from '../pages/ResetPassword';
->>>>>>> e4a9bcb1f12cb1527a641f80754b5e3cfcbe393d
 
 function App() {
 
