@@ -1,5 +1,5 @@
 import React from "react";
-import "./EventDisplayPage.css";
+import "./style/EventDisplayPage.css";
 
 const FAQ = ({ faq, index, toggleFAQ }) => {
   return (
