@@ -61,7 +61,7 @@ export default function ProfileDashboard() {
 
         if (selected && types.includes(selected.type)) {
             setFile(file);
-            uploadImage();
+            uploadImage(file);
         } else {
             setFile(null);
             setError('Please select a valid image file type (png / jpeg / webp / jpg)');
@@ -93,7 +93,7 @@ export default function ProfileDashboard() {
 
     const [url, setUrl] = useState("");
 
-    const uploadImage = () => {
+    const uploadImage = (file) => {
         console.log(file);
 
         const storage = getStorage();

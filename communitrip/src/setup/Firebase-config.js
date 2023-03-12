@@ -13,15 +13,13 @@ import { getStorage } from "firebase/storage"
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCtew0kDfFEJwwJa_9LXqcqYYhwykSiKe4",
-  authDomain: "communitrip-8a54c.firebaseapp.com",
-  projectId: "communitrip-8a54c",
-  storageBucket: "communitrip-8a54c.appspot.com",
-  messagingSenderId: "1004293768673",
-  appId: "1:1004293768673:web:65b8de0a1ff8be598ffea0",
-  measurementId: "G-JXVY8E9ZM8"
+  apiKey: "AIzaSyDPQY613cEbDrxYXBINUw_uqhXqeG3uEKo",
+  authDomain: "communi-trip.firebaseapp.com",
+  projectId: "communi-trip",
+  storageBucket: "communi-trip.appspot.com",
+  messagingSenderId: "113717098727",
+  appId: "1:113717098727:web:13fb7a92351474cf970a42"
 };
-
 
 // Initialize Firebase
 
@@ -33,4 +31,4 @@ export const provider = new GoogleAuthProvider();
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
-export const API_KEY = "sk-OfPb7bfyZvnIiwicm7ycT3BlbkFJGSLdXsFy1O5DGqu2b5hPsk-OfPb7bfyZvnIiwicm7ycT3BlbkFJGSLdXsFy1O5DGqu2b5hP"
+export const API_KEY = "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"

@@ -1,11 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import PlannerAI from "../ai/plannerAI";
 import ChatBoxView from "../components/ChatBoxView";
 import NavBar from "../components/NavBar";
-import { API_KEY } from "../setup/Firebase-config";
 import "./style/ChatPage.css"
 
-export default function ChatPage({ id }) {
+export default function ChatPage({ chatID }) {
 
     return (
         <>
@@ -16,9 +13,12 @@ export default function ChatPage({ id }) {
                 }}>
                     <div className="view">
                         <div className="header-container">
-                            <NavBar page={"chat"}/>
+                            <NavBar page={"chat"} isDarkTheme={true}/>
                         </div>
-                        <ChatBoxView eventID={id} hideSideBar={false}/>
+                        <ChatBoxView chatID={chatID} 
+                        hideSideBar={false}
+                        leftContainerStyle={{ width: "75%" }}
+                        bot={true}/>
                     </div>
                 </div>
             </>

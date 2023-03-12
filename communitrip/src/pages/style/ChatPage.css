@@ -21,18 +21,19 @@
 
 .chat-message-history-container {
     width: 100%;
-    height: 500px;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     margin-bottom: 4vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    
+    overflow-y: hidden;
+    overflow-x: auto;
+
+
 }
 
 .chat-right-container-view {
-    width: 20%;
+    width: 25%;
     height: 100%;
     background-color: #1b1b1b;
 }
@@ -70,7 +71,7 @@
     width: 90%;
     padding-top: 2vh;
     padding-bottom: 2vh;
-    padding-left: min(3vw, 3vh);
+    padding-left: min(2vw, 3vh);
     display: flex;
     flex-direction: column;
     height: max-content;
@@ -79,6 +80,7 @@
 .chat-message-text {
     color: #e0e0e0;
     font-weight: 300;
+    
 }
 
 .chat-message-user-text {

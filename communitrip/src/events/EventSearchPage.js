@@ -26,7 +26,7 @@ function Search() {
                     <PageBody/>
                     
                 </div>
-                <EventActionButton buttonText="Add Event"/>
+                <EventActionButton link="/event/add" buttonText="Add Event"/>
             </div>
         </>
       

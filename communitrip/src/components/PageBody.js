@@ -11,13 +11,14 @@ function PageBody() {
     const [eventList, setEventList] = useState([]);
     const eventsCollectionRef = collection(db, "Events")
 
-    const getEvents = async () => {
-        const data = await getDocs(eventsCollectionRef);
-        setEventList(data.docs.map((doc) => ({ ...doc.data(), docID: doc.id })));
-        
-    };
-
-    getEvents();
+    useEffect(() => {
+        const getEvents = async () => {
+            const data = await getDocs(eventsCollectionRef);
+            setEventList(data.docs.map((doc) => ({ ...doc.data(), docID: doc.id })));
+            
+        };
+        getEvents();
+    })
 
     return (
         <div className="body">

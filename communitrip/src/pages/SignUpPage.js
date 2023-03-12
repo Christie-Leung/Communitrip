@@ -8,7 +8,7 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 
-export default function SignUpPage({ IsAuth, setIsAuth }) {
+export default function SignUpPage() {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -66,6 +66,7 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
 
         if (selected && types.includes(selected.type)) {
             setFile(file);
+            uploadImage();
         } else {
             setFile(null);
             setError('Please select a valid image file type (png / jpeg / webp / jpg)');
@@ -89,6 +90,7 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
         }, async() => {
             const url = await storageRef.getDownloadURL();
             setUrl(url);
+            
         })
     }
 
@@ -141,7 +143,6 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
                 }
                 createUser(user.uid);
                 localStorage.setItem("isAuth", true);
-                setIsAuth(true);
                 navigate(`/profile/${user.uid}`);
             })
             .catch((error) => {
@@ -159,7 +160,7 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
             }}>
                 <div className="view">
                     <div className="header-container">
-                        <NavBar page={"signup"} IsAuth={IsAuth}/>
+                        <NavBar page={"signup"}/>
                     </div>
                     <div className="create-profile-full-container">
                         <div className="create-profile-left-container">

@@ -20,9 +20,17 @@
         width: 100%;
     }
 
+    .event-participants-view-container {
+      width: 30%;
+      display: flex;
+      position: relative;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+
     .event_summary {
         width: 85%;
-        justify-content: start;
+        justify-content: flex-start;
         margin: auto;
     }
 
@@ -30,7 +38,7 @@
         width: 85%;
         margin: auto;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .event-page-left-container {
@@ -40,6 +48,52 @@
       flex-direction: column;
       position: relative;
       margin-right: min(1.8vw, 1.8vh);
+    }
+
+    .event-page-right-container {
+      display: flex;
+      width: 40%;
+      height: 100%;
+      flex-direction: column;
+      position: relative;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .participant-header-title {
+      position: relative;
+      justify-content: flex-start;
+      align-items: flex-start;
+      display: flex;
+      font-weight: 600;
+      font-size: min(2.6vw, 3vh);
+      margin: auto;
+      margin-top: min(3vw, 3.5vh)
+    }
+
+    .event-group-chat {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      margin: auto;
+    }
+
+    .event-group-chat:hover {
+      width: 55%;
+      height: 105%;
+    }
+
+    .event-join-group-chat-button {
+      background-color: #2b2b2b;
+      border-radius: 5px;
+      color: #fff;
+      width: 100%;
+      font-size: min(2.2vw, 2.8vh);
+      padding: 4%;
+    }
+
+    .event-join-group-chat-button:hover {
+      font-size: min(2.5vw, 3vh);
     }
 
     .event_description {

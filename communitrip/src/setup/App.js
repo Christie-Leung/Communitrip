@@ -12,25 +12,24 @@ import ProfileDashboard from '../pages/ProfileDashboard';
 import ResetPassword from '../pages/ResetPassword';
 import ChatPage from '../pages/ChatPage';
 import FaqPage from '../pages/FaqPage';
+import ChatRouteManager from '../pages/ChatRouteManager';
 
 function App() {
-
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   return (
    <BrowserRouter>
     <Routes>
-      <Route exact path={"/"} element={<LandingPage IsAuth={isAuth}/>}/>
-      <Route exact path={"/login"} element={<LogInPage IsAuth={isAuth} setIsAuth={setIsAuth}/>}/>
-      <Route exact path={"/signup"} element={<SignUpPage IsAuth={isAuth} setIsAuth={setIsAuth}/>}/>
+      <Route exact path={"/"} element={<LandingPage/>}/>
+      <Route exact path={"/login"} element={<LogInPage/>}/>
+      <Route exact path={"/signup"} element={<SignUpPage/>}/>
       <Route exact path={"/event/test"} element={<EventDisplayPage/>}/>
-      <Route exact path={"/trips"} element={<EventSearchPage IsAuth={isAuth}/>}/>
-      <Route exact path={"/event/add"} element={<EventAddPage IsAuth={isAuth}/>}/>
-      <Route exact path={"/event/:eventid"} element={<EventRouteManager IsAuth={isAuth}/>}/>
+      <Route exact path={"/trips"} element={<EventSearchPage/>}/>
+      <Route exact path={"/event/add"} element={<EventAddPage/>}/>
+      <Route exact path={"/event/:eventid"} element={<EventRouteManager/>}/>
       <Route exact path={"/profile/:id"} element={<ProfileDashboard/>}/>
       <Route exact path={"/resetpassword"} element={<ResetPassword/>}/>
       <Route exact path={"/chat/test"} element={<ChatPage/>}/>
-      <Route exact path={"/chat/:id"} element={<ChatPage/>}/>
+      <Route exact path={"/chat/:chatid"} element={<ChatRouteManager/>}/>
       <Route exact path={"/faq"} element={<FaqPage/>}/>
       <Route exact path={"*"} element={
             <>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import {db, storage} from "../setup/Firebase-config";
@@ -6,7 +6,7 @@ import "./style/EventAddPage.css"
 import "./style/Calendar.css"
 import React, {Component} from 'react';
 import Calendar from "react-calendar";
-import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, query, Timestamp, updateDoc, where } from "firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import { v4 as uuid } from 'uuid';
@@ -15,7 +15,7 @@ import "./style/EventDisplayPage.css";
 import { uuidv4 } from "@firebase/util";
 import ChatBoxView from "../components/ChatBoxView";
 
-export default function EventAddPage({ IsAuth, setIsAuth }) {
+export default function EventAddPage() {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -48,39 +48,88 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
 
         if (selected && types.includes(selected.type)) {
             setFile(file);
+            uploadImage(file);
         } else {
             setFile(null);
             setError('Please select a valid image file type (png / jpeg / webp / jpg)');
         }
       };
 
+    const uploadImage = (file) => {
+        console.log(file);
+
+        const storage = getStorage();
+
+        const storageRef = ref(storage, `/profilePictures/${file.name}`);
+
+        uploadBytes(storageRef, file).then((snapshot) => {
+            console.log('uploaded file')
+        }, async() => {
+            const url = await storageRef.getDownloadURL();
+            setUrl(url);
+            console.log(url);
+        })
+    }
+
     const [progress, setProgress] = useState("");
     const [url, setUrl] = useState("");
+
+    const userID = localStorage.getItem("userUID");
 
     const eventCollectionRef = collection(db, "Events");
 
     const createEvent = async () => {
+        let uuid = uuidv4();
+        updateUserProfile(uuid);
         await addDoc(eventCollectionRef,
             {
-                id: uuidv4(),
+                id: uuid,
                 title: title,
                 description: description,
-                // leader: leader,
+                leader: userID,
                 numGuest: numGuest,
-                // participants: [],
+                participants: [ userID ],
                 location: location,
                 duration: duration,
                 date: date, 
-                cost: cost
-                // imagePicture: url
+                cost: cost,
+                image: url
             }).catch((err) => {
                 console.log(err);
+                setError(err);
             }).then((doc) => {
                 console.log(doc);
+                navigate(`/event/${uuid}`);
             })
+
+        
 
     }
 
+    const usersCollcectionRef = collection(db, "Users")
+
+    const updateUserProfile = async (uuid) => {
+        const updateUser = async () => {
+            const q = query(usersCollcectionRef, where("id", "==", userID));
+            const doc_refs = await getDoc(q);
+    
+            const res = []
+            
+            doc_refs.forEach((doc) => {
+                res.push({
+                    docID: doc.id,
+                    ...doc.data()
+                })
+            })
+            
+            const userRef = doc(db, "Users", res[0].docID);
+
+            await updateDoc(userRef, {
+                event: [...userRef.event, uuid]
+            })
+        };
+        updateUser();
+    }
 
     return (
         <>
@@ -166,6 +215,7 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
                                  />
                             </div>
                             <div style={{ display: "flex", justifyContent: "end"}}>
+                                {error ? <text className="profile-invalid">{error}</text> : <></>}
                                     <button type="submit" className="event-add-button" 
                                     onClick={() => {
                                         console.log(description, numGuest, location, duration, date, cost)

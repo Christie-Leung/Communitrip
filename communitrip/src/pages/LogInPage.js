@@ -13,7 +13,7 @@ export default function LogInPage() {
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then((result) => {
             localStorage.setItem("isAuth", true);
-            
+            localStorage.setItem("userUID", result.user.uid)
             navigate("/");
         })
     }
@@ -27,6 +27,7 @@ export default function LogInPage() {
         .then((userCredential) => {
             // Signed in 
             localStorage.setItem("isAuth", true);
+            localStorage.setItem("userUID", userCredential.user.uid)
             console.log("success")
             navigate("/")
 

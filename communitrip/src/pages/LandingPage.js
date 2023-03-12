@@ -26,7 +26,7 @@ export default function LandingPage() {
 
                 <div>
                 <div className="landing_join_button">
-                    <Link to="/event" 
+                    <Link to="/trips" 
                     className="join">Start Looking</Link>
                 </div>
                 </div>

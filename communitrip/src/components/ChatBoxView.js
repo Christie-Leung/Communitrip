@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import PlannerAI from "../ai/plannerAI";
-import NavBar from "../components/NavBar";
-import { API_KEY } from "../setup/Firebase-config";
+import { API_KEY, db } from "../setup/Firebase-config";
 import "../pages/style/ChatPage.css"
+import ParticipantsContainer from "./ParticipantsContainer";
+import { collection, getDoc, query, where } from "@firebase/firestore";
 
-export default function ChatBoxView({ eventID, hideSideBar, containerStyle, leftContainerStyle }) {
+export default function ChatBoxView({ chatID, hideSideBar, containerStyle, leftContainerStyle }) {
 
     const [userMessage, setUserMessage] = useState("");
     const [messageHistory, setMessageHistory] = useState([]);
@@ -12,6 +12,27 @@ export default function ChatBoxView({ eventID, hideSideBar, containerStyle, left
 
     // const name = localStorage.getItem("user");
     const name = "Christie"
+
+    const [event, setEvent] = useState(null);
+    const eventCollectionRef = collection(db, "Events");
+
+    useEffect(() => {
+        const getEventInfo = async () => {
+            const q = query(eventCollectionRef, where("id", "==", chatID));
+            const doc_refs = await getDoc(q);
+
+            const res = []
+            
+            doc_refs.forEach((doc) => {
+                res.push({
+                    docID: doc.id,
+                    ...doc.data()
+                })
+            })
+            setEvent(res[0]);
+        };
+        getEventInfo()
+    });
 
     const updateMessageHistory = (message, sender) => {
         setMessageHistory(messageHistory => [...messageHistory, {
@@ -26,21 +47,20 @@ export default function ChatBoxView({ eventID, hideSideBar, containerStyle, left
         setUserMessage("");
 
         setTyping(true);
-        await processMessageToChatGPT(userMessage).then(() => {
-            console.log(messageHistory);
-        });
-        
-        //callOpenAIAPI();
+
+        if (userMessage.includes("plan") || userMessage.includes("where to go")) {
+            callOpenAIAPI();
+        } else {
+            await processMessageToChatGPT(userMessage).then(() => {
+                console.log(messageHistory);
+            });
+        }
     }
 
-    //const duration = event.duration;
-    const duration = "2"
 
-    //const location = event.location;
-    const location = "Vancouver"
-
-    //const budget = event.budget
-    const budget = "";
+    const duration = event ? (event.duration < 5 ? event.duration : 3) : "3";
+    const location = event ? (event.location) : "Vancouver";
+    const budget = event ? (event.budget) : "50";
 
     //const travelMethod = event.travelMethod
     const travelMethod = "car"
@@ -49,13 +69,12 @@ export default function ChatBoxView({ eventID, hideSideBar, containerStyle, left
 
         const APIBody = {
             "model": "text-davinci-003",
-            "prompt": "Pretend to be a travel enthusiat, make a 5 column spreadsheet of a" 
-                        + duration + " day travel plan to " + location + " in an excel sheet format. " 
+            "prompt": "Pretend to be a travel enthusiat, make a" 
+                        + duration + " day travel plan to " + location + ". " 
                         + "Include flights (if needed), hotels (if needed), restaurants (if needed),"
                         + " activities with estimated cost and an overall estimated cost." 
                         + `${ budget ? "The budget per person is " + budget + ".": "" }`
-                        + " Make sure to optimize travel time using the " + travelMethod + " as travelling method."
-                        + "Activity Name | Day | Time | Estimated Cost | Short Description",
+                        + " Make sure to optimize travel time using the " + travelMethod + " as travelling method.",
             "temperature": 0.05,
             "max_tokens": 1200,
             "top_p": 1.0,
@@ -85,9 +104,11 @@ export default function ChatBoxView({ eventID, hideSideBar, containerStyle, left
     const processMessageToChatGPT = async (userInput) => {
         const resquestBody = {
             "model": "text-davinci-003",
-            "prompt": "Answer positively and pretend to be a travel enthusiast"
-                        + "without saying you are one. Do not complete the sentence. Provide an answer, explanation and respond "
-                        + "to the following: " + userInput,
+            "prompt": "Answer positively and pretend to be a travel enthusiast "
+                        + "without saying you are one. Do not complete the sentence. "
+                        + `${ event ? `You are given the following information about a planned vacation trip. Location: ${event.location}, Budget: ${event.cost}, description: ${event.description}, number of people going: ${event.numGuest}, duration: ${event.duration}.` : "" }` +
+                        "Use this information to respond as a helper in suggesting ideas for the plan while trying to learn about " 
+                        + " their personalities to make more suitable suggestions. Make it more conversational like a friend rather than questioning: " + userInput,
             "temperature": 0.2,
             "max_tokens": 640,
             "top_p": 1.0,
@@ -143,7 +164,8 @@ export default function ChatBoxView({ eventID, hideSideBar, containerStyle, left
             </div>
             { hideSideBar ? <></> : 
                 <div className="chat-right-container-view">
-                    
+                    <ParticipantsContainer bot={true} eventID={chatID} hideSideBar={false}
+                        leftContainerStyle={{ width: "75%" }}/>
                 </div>
             }
             
