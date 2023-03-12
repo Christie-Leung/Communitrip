@@ -92,8 +92,7 @@ export default function ProfileDashboard() {
     }
 
     const [url, setUrl] = useState("");
-    localStorage.setItem("userUID", "uPUMDwSElYQlzHpZcC0ZBpPIBAn2")
-
+    
     const uploadImage = () => {
         console.log(file);
 
