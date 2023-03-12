@@ -122,6 +122,7 @@ export default function SignUpPage({ IsAuth, setIsAuth }) {
     const handlePasswordCheck = (event) => {
         const validPassword = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(event.target.value)
         setIsValid(validPassword);
+        setError("")
         if (!validPassword) {
             setError("Please ensure your password is 8 characters long and includes atleast one uppercase letter, one number, and a special character. ")
         }
