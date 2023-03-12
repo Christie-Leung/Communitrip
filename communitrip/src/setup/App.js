@@ -11,6 +11,7 @@ import EventAddPage from '../events/EventAddPage';
 import ProfileDashboard from '../pages/ProfileDashboard';
 import ResetPassword from '../pages/ResetPassword';
 import ChatPage from '../pages/ChatPage';
+import FaqPage from '../pages/FaqPage';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
       <Route exact path={"/resetpassword"} element={<ResetPassword/>}/>
       <Route exact path={"/chat/test"} element={<ChatPage/>}/>
       <Route exact path={"/chat/:id"} element={<ChatPage/>}/>
+      <Route exact path={"/faq"} element={<FaqPage/>}/>
       <Route exact path={"*"} element={
             <>
                 <main>This page does not exist!</main>

@@ -26,6 +26,9 @@ export default function NavBar({ page }){
             <Link to={"/trips"}>
                 <button className={page === "trips" ? "navbar-button-text-enabled" : "navbar-button-text-disabled"}>Trips</button>
             </Link>
+            <Link to={"/faq"}>
+                <button className={page === "faq" ? "navbar-button-text-enabled" : "navbar-button-text-disabled"}>FAQ</button>
+            </Link>
             { IsAuth ? 
             <>
                 <Link to={`/profile/${localStorage.getItem("userUID")}`}>

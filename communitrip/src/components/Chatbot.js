@@ -166,7 +166,7 @@ const generateNextStep = async (label) =>{
     } else {
       switch(label) {
         case 'account page':
-        return "Please direct to " + LogIn_page +"for log in, set up the account for Communitrip. You could log in or set up using email or Gmail account.";
+        //return "Please direct to " + LogIn_page +"for log in, set up the account for Communitrip. You could log in or set up using email or Gmail account.";
         break;
 
         case 'event page':
@@ -251,17 +251,18 @@ const startQuery =()=> {
           </div>
           <div>
           {isButtonVisible && (
-        <button onClick={startQuery}>Start chatting with our bot! </button>
+        <button className="cohere-chat-button" onClick={startQuery}>Start chatting with our bot! </button>
       )} </div>
           {!isButtonVisible && 
           <div className="chat-input-container"> 
              <input
               type="text"
+              className="cohere-chat-input-text"
               value={userInput}
               onChange={(event) => 
                 setUserInput(event.target.value)
               }
-              placeholder="Type your message here"/> <button onClick={handleButtonClick}>Send</button>
+              placeholder="Type your message here"/> <button className="cohere-chat-button"onClick={handleButtonClick}>Send</button>
           </div> }
         </div>
       );
