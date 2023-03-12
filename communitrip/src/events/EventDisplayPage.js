@@ -87,8 +87,6 @@ export default function EventDisplayPage({ IsAuth }) {
 
             // Event join button
             // Event profile
-   
-            <NavBar IsAuth={IsAuth}/>
 
             </div>
         </>

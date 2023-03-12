@@ -2,12 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import "./style/EventAddPage.css"
+import "./style/Calendar.css"
+import React, {Component} from 'react';
+import Calendar from "react-calendar";
+
+
+import "./style/EventDisplayPage.css";
 
 export default function EventAddPage({ IsAuth, setIsAuth }) {
 
     const [eventTitle, setEventTitle] = useState("");
     const [eventLocation, setLocation] = useState("");
-    const [eventDate, setDate] = useState("");
     const [eventDuration, setDuration] = useState("");
     const [eventCost, setCost] = useState("");
 
@@ -15,6 +20,9 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
     const [image, setImage] = useState(null);
+
+    const [date, setDate] = useState(new Date());
+    const [showTime, setShowTime] = useState(false) 
 
     const handleFileInputChange = (event) => {
         const file = event.target.files[0];
@@ -33,6 +41,7 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
       };
 
     return (
+    
         <>
          <div className="window-container" style={{
                     backgroundColor: "white",
@@ -65,7 +74,6 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
                                 }
                             
                         </div>
-                        
                         <div className="create-event-right-container">
                         
                             <div className="event-input-container">
@@ -93,6 +101,18 @@ export default function EventAddPage({ IsAuth, setIsAuth }) {
                                     <button type="submit" className="event-add-button">Add Event</button>
                                 </Link>
                             </div>
+                        </div>
+                    </div>
+                    <div className="calendar-view-container">
+                        <div className='react-calendar'>
+                        <text className='calendar-header'>React Calendar</text>
+                        <div className='calendar-container'>
+                            <Calendar onChange={setDate} value={date} />
+                            </div>
+                            <p className='text-center'>
+                                <span className='bold'>Selected Date:</span>{' '}
+                                {date.toDateString()}
+                            </p>
                         </div>
                     </div>
                 </div>

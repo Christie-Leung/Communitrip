@@ -35,14 +35,6 @@
         margin-left: 630px;
     }
 
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        margin-left: 50px;
-
-      }
-
     .faqs {
         width: 100%;
         max-width: 768px;
