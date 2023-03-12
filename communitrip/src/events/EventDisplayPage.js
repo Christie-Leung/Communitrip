@@ -4,8 +4,10 @@ import { useState } from "react";
 import * as React from 'react';
 import './style/EventDisplayPage.css'
 import FAQ from "./FAQ";
+import ParticipantContainer from "../components/ParticipantsContainer"
 
-export default function EventDisplayPage({ id, IsAuth }) {
+export default function EventDisplayPage({ eventID, IsAuth }) {
+
     const [faqs, setFaqs] = useState([
         {
           question: "What is included in the package?",
@@ -65,6 +67,7 @@ export default function EventDisplayPage({ id, IsAuth }) {
                         <img className="event_photo_image" src={cappadocia} alt="Logo"/>
                     </div>
                   </div>
+                  <ParticipantContainer eventID={eventID}/>
                 </div>
                 <div className="event_summary">
                       <p> - Location: Town center of Goreme, Cappadocia <br></br>
