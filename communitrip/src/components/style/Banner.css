@@ -1,0 +1,14 @@
+.banner{
+    background: url("../banner.png") no-repeat center center;
+    opacity: 1;
+    height: 50vh;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.banner > h1 {
+    color: aliceblue;
+    padding-left: 30px;
+    padding-top: 100px;
+}
