@@ -1,4 +1,4 @@
-import logo from '../logo.svg';
+
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { useState } from 'react';
@@ -7,6 +7,7 @@ import LogInPage from '../pages/LogInPage';
 import SignUpPage from '../pages/SignUpPage';
 import EventRouteManager from '../events/EventRouteManager';
 import EventDisplayPage from '../events/EventDisplayPage';
+import EventSearchPage from "../events/EventSearchPage";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Route exact path={"/login"} element={<LogInPage IsAuth={isAuth} setIsAuth={setIsAuth}/>}/>
       <Route exact path={"/signup"} element={<SignUpPage IsAuth={isAuth} setIsAuth={setIsAuth}/>}/>
       <Route exact path={"/event/test"} element={<EventDisplayPage IsAuth={isAuth}/>}/>
+      <Route exact path={"/event"} element={<EventSearchPage IsAuth={isAuth}/>}/>
       <Route exact path={"/event/:id"} element={<EventRouteManager IsAuth={isAuth}/>}/>
       <Route exact path={"*"} element={
             <>

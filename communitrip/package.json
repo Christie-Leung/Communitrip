@@ -13,13 +13,10 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
     "react-router-dom": "^6.9.0",
-<<<<<<< HEAD
-    "react-scripts": "^5.0.1",
-=======
     "react-scripts": "5.0.1",
     "uuid": "^9.0.0",
->>>>>>> d1a76d3e066faa1945f39eb7bfa6d92cb440431c
     "web-vitals": "^2.1.4"
   },
   "scripts": {
